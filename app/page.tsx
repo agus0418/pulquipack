@@ -32,6 +32,7 @@ import { useEffect, useState } from "react"
 import { useMobile } from "@/hooks/use-mobile"
 import Image from "next/image"
 import TrackingWidget from "@/components/tracking-widget"
+import { Navbar } from "@/components/ui/navbar"
 
 export default function HomePage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -59,130 +60,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Navigation */}
-      <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-gradient-to-r from-blue-50 to-white backdrop-blur-sm shadow-xl border-b border-blue-100"
-            : "bg-transparent shadow-lg"
-        }`}
-        style={{
-          boxShadow: scrolled
-            ? "0 10px 25px -5px rgba(59, 130, 246, 0.15), 0 4px 6px -2px rgba(59, 130, 246, 0.05)"
-            : "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 transform hover:scale-105 transition-transform duration-300">
-                <Image
-                  src="/images/ruge-mono.png"
-                  alt="PULQUIPACK Logo"
-                  width={120}
-                  height={48}
-                  className="h-12 w-auto drop-shadow-sm"
-                />
-              </div>
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <a
-                  href="#inicio"
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg flex items-center ${
-                    scrolled
-                      ? "text-blue-700 hover:text-blue-800 hover:bg-blue-100"
-                      : "text-white hover:text-blue-200 hover:bg-white/10"
-                  }`}
-                >
-                  <Sparkles className="w-4 h-4 mr-1" />
-                  Inicio
-                </a>
-                <a
-                  href="#nosotros"
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg flex items-center ${
-                    scrolled
-                      ? "text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                      : "text-white/90 hover:text-blue-200 hover:bg-white/10"
-                  }`}
-                >
-                  <Users className="w-4 h-4 mr-1" />
-                  Nosotros
-                </a>
-                <a
-                  href="#servicios"
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg flex items-center ${
-                    scrolled
-                      ? "text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                      : "text-white/90 hover:text-blue-200 hover:bg-white/10"
-                  }`}
-                >
-                  <Settings className="w-4 h-4 mr-1" />
-                  Servicios
-                </a>
-                <div className="relative group">
-                  <button
-                    className={`px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg flex items-center ${
-                      scrolled
-                        ? "text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                        : "text-white/90 hover:text-blue-200 hover:bg-white/10"
-                    }`}
-                  >
-                    <Package className="w-4 h-4 mr-1" />
-                    Solicitudes
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 ml-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                    <Link
-                      href="/presupuesto"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center"
-                    >
-                      <TrendingUp className="w-4 h-4 mr-2" />
-                      Solicitar Presupuesto
-                    </Link>
-                    <Link
-                      href="/retiros"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center"
-                    >
-                      <Truck className="w-4 h-4 mr-2" />
-                      Retiros a Domicilio
-                    </Link>
-                  </div>
-                </div>
-                <Link
-                  href="/seguimiento"
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg flex items-center ${
-                    scrolled
-                      ? "text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                      : "text-white/90 hover:text-blue-200 hover:bg-white/10"
-                  }`}
-                >
-                  <Route className="w-4 h-4 mr-1" />
-                  Seguimiento
-                </Link>
-                <Link
-                  href="/contacto"
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg flex items-center ${
-                    scrolled
-                      ? "text-blue-600 hover:text-blue-800 hover:bg-blue-100"
-                      : "text-white/90 hover:text-blue-200 hover:bg-white/10"
-                  }`}
-                >
-                  <Headphones className="w-4 h-4 mr-1" />
-                  Contacto
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar isHome={true} />
 
       {/* Hero Section */}
       <section
