@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Package, Sparkles, Users, Settings, Route, Headphones, TrendingUp, Truck } from "lucide-react"
+import { Package, Sparkles, Users, Settings, Route, Headphones, TrendingUp, Truck, MapPin } from "lucide-react"
 import { MobileMenu } from "./mobile-menu"
 import { useMobile } from "@/hooks/use-mobile"
 
@@ -124,19 +124,26 @@ export function Navbar({ isHome = false }: NavbarProps) {
                   </Link>
                   <Link
                     href="/retiros"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center last:rounded-b-md transition-all duration-200"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center transition-all duration-200"
                   >
                     <Truck className="w-4 h-4 mr-2" />
                     Retiros a Domicilio
                   </Link>
+                  <Link
+                    href="/seguimiento"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center last:rounded-b-md transition-all duration-200"
+                  >
+                    <Route className="w-4 h-4 mr-2" />
+                    Seguimiento de Envíos
+                  </Link>
                 </div>
               </div>
               <Link
-                href="/seguimiento"
+                href="/sucursales"
                 className={`px-3 py-2 text-sm font-medium transition-all duration-300 flex items-center ${navStyles.linkClass(scrolled)}`}
               >
-                <Route className="w-4 h-4 mr-2" />
-                Seguimiento
+                <MapPin className="w-4 h-4 mr-2" />
+                Sucursales
               </Link>
               <Link
                 href="/contacto"
