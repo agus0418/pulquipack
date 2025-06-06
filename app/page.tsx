@@ -67,7 +67,20 @@ export default function HomePage() {
         id="inicio"
         className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white overflow-hidden"
       >
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/truck-fleet-1.jpg"
+            alt="Flota de camiones PulquiPack"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/60 to-blue-700/50"></div>
         {/* Animated background elements - reducidos en móvil */}
         {!isMobile && (
           <div className="absolute inset-0">
@@ -524,9 +537,9 @@ export default function HomePage() {
                 <Image
                   src="/images/ruge-mono.png"
                   alt="PULQUIPACK Logo"
-                  width={60}
-                  height={24}
-                  className="h-6 w-auto opacity-80"
+                  width={110}
+                  height={45}
+                  className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
                 />
                 <h3 className="text-2xl font-bold hover:text-blue-400 transition-colors duration-300">PULQUIPACK</h3>
               </div>
